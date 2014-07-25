@@ -1,11 +1,16 @@
 <div class="container">
 
-<h1>User Profile</h1>
-
-<p>Some user info.</p>
-
-<h3>Create a survey!</h3>
-
-<form action="/" method="get"
+<h3>welcome back, <a href='/users/<%= @user.id %>'><%= @user.username %></a>!</h3>
+	<p>your surveys are listed below.  select to view survey, edit, and/or view results:</p>
+	<ul>
+	<% @surveys.each do |survey| %>
+		<li><a href='/surveys/<%= survey.id %>'><%= survey.title  %></a></li>
+		<% end %>
+	</ul>
+	
+	<form action="/surveys/new" method="get">
+  <input type="submit" value="create new survey">
+  <br>
+  </form>
 
 </div>

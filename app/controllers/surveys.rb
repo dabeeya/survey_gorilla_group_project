@@ -1,8 +1,9 @@
-get '/surveys/:id' do
-end
-
 get '/surveys/new' do
   erb :create
+end
+
+get '/surveys/:id' do
+	erb :survey
 end
 
 patch '/surveys/:id/edit' do 
