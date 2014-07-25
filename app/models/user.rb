@@ -19,4 +19,5 @@ class User < ActiveRecord::Base
     return user if user && (user.password == password)
     nil # either invalid email or wrong password
   end
+  
 end
