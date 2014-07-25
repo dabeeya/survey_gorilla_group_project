@@ -27,12 +27,12 @@ post '/sessions' do
   end
 end
 
-# delete '/sessions/:id' do
-#   # sign-out -- invoked via AJAX
-#   return 401 unless params[:id].to_i == session[:user_id].to_i
-#   session.clear
-#   200
-# end
+delete '/sessions/:id' do
+  # sign-out -- invoked via AJAX
+  return 401 unless params[:id].to_i == session[:user_id].to_i
+  session.clear
+  200
+end
 
 get '/logout' do
   session.clear
