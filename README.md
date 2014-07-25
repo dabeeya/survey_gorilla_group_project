@@ -5,6 +5,9 @@
   * Dylan Krause
   * Farheen Malik
   * Christian Moon
+  * Cassie Moy
+  * Derek Siker
+  * David Sin
 
 ### Description of MVP
 
