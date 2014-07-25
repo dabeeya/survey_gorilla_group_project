@@ -17,6 +17,13 @@ survey = Survey.first
 	survey.questions << Question.create(context: Faker::Lorem.sentence)
 end
 
+questions = Question.all
+
+questions.each do |question|
+	5.times do
+		question.choices << Choice.create(input: Faker::Lorem.sentence)
+	end
+end
 
 
 
