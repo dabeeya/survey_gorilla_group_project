@@ -2,6 +2,7 @@ class CreateChoices < ActiveRecord::Migration
   def change
     create_table :choices do |t|
       t.string :input
+      t.string :type
       t.belongs_to :question
 
       t.timestamps
