@@ -1,4 +1,5 @@
-get '/users/:id' do 
+get '/users/:id' do
+  erb :profile 
 end
 
 post '/users/login' do 
