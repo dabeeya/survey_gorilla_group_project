@@ -1,11 +1,11 @@
-get 'users/:id'
+get '/users/:id' do 
 end
 
-post 'users/login'
+post '/users/login' do 
 end
 
-post 'users/sign_up'
+post '/users/sign_up' do 
 end
 
-get 'users/logout'
+get '/users/logout' do 
 end

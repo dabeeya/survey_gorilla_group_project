@@ -1,3 +1,5 @@
+require 'faker'
+
 ## use this test data until we have real seed data
 user1 = User.create(username: 'farheen', email: 'f@email.com', password: 'cake')
 user2 = User.create(username: 'cassie', email: 'c@email.com', password: 'cake')
