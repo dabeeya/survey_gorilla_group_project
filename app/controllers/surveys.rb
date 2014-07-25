@@ -6,13 +6,14 @@ get '/surveys/:id' do
 	erb :survey
 end
 
-patch '/surveys/:id/edit' do 
+#Maker Edit Page
+get '/surveys/:id/maker' do
+
+	erb :edit_survey
 end
 
-get '/surveys/id/results' do 
+patch '/surveys/:id/edit' do
 end
 
-
-
-
-
+get '/surveys/:id/results' do
+end
