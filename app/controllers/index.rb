@@ -6,11 +6,11 @@ end
 
 #----------- SESSIONS -----------
 
-get '/sessions/new' do
-  # render sign-in page
-  @email = nil
-  erb :sign_in
-end
+# get '/sessions/new' do    #KEEPING THIS JUST IN CASE WE DECIDE TO HAVE A SIGN IN PAGE
+#   # render sign-in page
+#   @email = nil
+#   erb :index
+# end
 
 post '/sessions' do
   # sign-in
@@ -23,16 +23,16 @@ post '/sessions' do
   else
     # an error occurred, re-render the sign-in form, displaying an error
     @error = "Invalid email or password."
-    erb :sign_in
+    erb :index
   end
 end
 
-# delete '/sessions/:id' do
-#   # sign-out -- invoked via AJAX
-#   return 401 unless params[:id].to_i == session[:user_id].to_i
-#   session.clear
-#   200
-# end
+delete '/sessions/:id' do
+  # sign-out -- invoked via AJAX
+  return 401 unless params[:id].to_i == session[:user_id].to_i
+  session.clear
+  200
+end
 
 get '/logout' do
   session.clear
