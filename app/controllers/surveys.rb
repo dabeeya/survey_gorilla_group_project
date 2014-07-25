@@ -1,10 +1,10 @@
-get 'surveys/:id'
+get '/surveys/:id' do
 end
 
-update 'surveys/:id/edit'
+patch '/surveys/:id/edit' do 
 end
 
-get '/surveys/id/results'
+get '/surveys/id/results' do 
 end
 
 
