@@ -3,10 +3,6 @@ user1 = User.create(username: 'farheen', email: 'f@email.com', password: 'cake')
 user2 = User.create(username: 'cassie', email: 'c@email.com', password: 'cake')
 user3 = User.create(username: 'dylan', email: 'd@email.com', password: 'cake')
 
-5.times do
-	User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: Faker::Internet.password)
-end
-
 users = [user1, user2, user3]
 users.each do |user|
 	5.times do 
