@@ -1,7 +1,8 @@
 class CreateQuestions < ActiveRecord::Migration
   def change
     create_table :questions do |t|
-      t.strings :context
+      t.string :context
+      t.string :style
       t.belongs_to :survey
 
       t.timestamps
