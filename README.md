@@ -1,2 +1,2 @@
-survey_gorilla_group_project
+Phase 2 Week 2: Survey Gorilla
 ============================
