@@ -6,6 +6,8 @@
   * Farheen Malik
   * Christian Moon
 
+### Description of MVP
+
 ### Team dynamic and git workflow
   
 ### Links
