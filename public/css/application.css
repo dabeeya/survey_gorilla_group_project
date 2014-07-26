@@ -9,41 +9,69 @@ th {
 }
 
 
+nav {
+  width: 100%;
+  height: 40px;
+  font-weight: bold;
+}
 
+nav .brand, nav .brand a {
+  margin-left: 25px;
+  font-size: 18pt;
+  text-decoration: none;
+  color: #444;
+  width: 60%;
+  display: inline-block;
+}
+nav ul {
+  display: inline-block;
+  width: 30%;
+  text-align: right;
+}
 
+nav li {
+  margin-right: 25px;
+  display: inline;
+}
 
+nav li a {
+  color: gray;
+  text-decoration: none;
+}
 
+nav li a:hover {
+  text-decoration: underline;
+}
 
 
 /*Survey Edit*/
 body {
-	font-family: Arial Rounded MT Bold, sans-serif;
+  font-family: Arial Rounded MT Bold, sans-serif;
 }
 
 
 .wrapper {
-	display: flex; 
-	height: 600px;
+  display: flex; 
+  height: 600px;
 }
 
 .main {
-	width: 600px; 
-	height: 400px; 
-	margin: auto; 
+  width: 600px; 
+  height: 400px; 
+  margin: auto; 
 }
 
 .question_style {
-	width:75px;
-	text-align: center; 
+  width:75px;
+  text-align: center; 
 }
 thead > tr {
-	text-align: center; 
+  text-align: center; 
 }
 td {
-	padding: 8px;
+  padding: 8px;
 }
 
 p{
-	background-color:lightblue ; 
-	text-align: center;
-}
+  background-color:lightblue ; 
+  text-align: center;

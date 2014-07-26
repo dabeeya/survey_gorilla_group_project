@@ -18,6 +18,21 @@
   <title></title>
 </head>
 <body>
+  <nav>
+<!--   <%= params.inspect %>
+  <%= session.inspect %> -->
+    <div class="brand"><a href="/">survey gorilla</a></div>
+  <ul>
+      <% if current_user %>
+        <li><a href="/users/<%= current_user.id %>">profile</a></li>
+      <% end %> <!-- bugbug -->
+      <% if current_user %>
+        <li><a href="/users/logout">sign out</a></li>
+      <% else %>
+        <li><a href="/users">sign In/sign up</a></li>
+      <% end %>
+    </ul>
+  </nav>
   <%= yield %>
 </body>
 </html>
