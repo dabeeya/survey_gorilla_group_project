@@ -1,5 +1,15 @@
 require 'faker'
 
+obama = User.create(username: 'daprez', email: 'obama@whitehouse.com', password: 'cake')
+obama.surveys << Survey.create(title: "Presidential Desserts")
+obama.surveys.first.questions << Question.create(context: "What would you like the official ice cream to be?", style: "radio")
+["chocolate", "vanilla", "blueberrys"].each do |flavor|
+	obama.surveys.first.questions.first.choices << Choice.create(input: flavor)
+end 
+
+obama.surveys.first.questions << Question.create(context: "What would you recommend for foreign dignitaries?", style: "text")
+
+
 ## use this test data until we have real seed data
 user1 = User.create(username: 'farheen', email: 'f@email.com', password: 'cake')
 user2 = User.create(username: 'cassie', email: 'c@email.com', password: 'cake')

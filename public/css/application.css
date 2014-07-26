@@ -68,6 +68,9 @@ body {
 thead > tr {
   text-align: center; 
 }
+thead td {
+  color:green;
+}
 td {
   padding: 8px;
 }

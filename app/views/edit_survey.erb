@@ -1,0 +1,37 @@
+<div class="wrapper">
+
+
+<div class="main">
+	<h1>Survey</h1>
+	 <p><%= @survey.title %></p>
+ 
+<table>
+	<thead>
+	<tr>
+		<td class="question_style">
+		Input Style
+		</td>
+		<td>
+			Question
+		</td>
+	</tr>
+	</thead>
+		<% @questions.each do |question| %>
+	<tr>
+		<td class="question_style">
+	<%= question.style %>
+		</td>
+		<td>
+	<%= question.context %>
+		</td>
+	<br>
+	<% end %>
+	</tr>
+</table>
+<br>
+<br>
+<button id="survey_edit">Edit Survey?</button>
+</div>
+
+
+</div>
