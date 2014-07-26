@@ -1,21 +1,23 @@
 <div class="container">
 	<p><%= @survey.title %></p>
-	 <form action="surveys/submit" method="post">
+	 <form action="/surveys/submit" method="post">
 <% @survey.questions.each do |question| %>
 <p>Question: <%=@num+=1%>: <%=question.context %></p>
 	<% if question.style == "text" %>
-		<input type="text" name="question_<%=question.id%>">
+		<input type="text" name=<%=question.id%>>
 	<% elsif question.style == "radio" %>
 		<% question.choices.each do |choice| %>
 		
 
-		<input type="radio" name="question_<%=question.id%>" 
-		value=<%=choice.input%>> <%=choice.input%> <br>
+		<input type="radio" name=<%=question.id%> 
+		value="<%=choice.input%>"> <%=choice.input%> <br>
 		<% end %>
 	<% end %>
 
 
 <% question.choices %>
 <% end %>
+<br>
+<input type="submit" value="Submit Survey!">
 </form>
 </div>
