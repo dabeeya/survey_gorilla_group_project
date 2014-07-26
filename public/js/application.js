@@ -20,7 +20,6 @@ $(document).ready(function(){
 
   $("#addQuestion").submit(function(e) {
     e.preventDefault();
-    var questionID = n+1;
     $('#new-questions').append(options);
     options.show();
 
@@ -32,10 +31,25 @@ $(document).ready(function(){
       radio.show();
       $('#another-choice').submit(function(e){
         e.preventDefault();
-        $('#choices').after('<br><td><input type="radio"><input type="text" name="choice[input]"></td>');
+        $('#choices').after('<br><td><input type="radio"><input type="text" name="input"></td>');
+      })
 
+      $('form#radio-choice').submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+          type: 'post',
+          url: '/questions/new',
+          data: $(this).serialize()
+        }).success(function(data){
+          console.log("works")
+          console.log(data)
+          $('#submitted-questions').append(data)
+        }).fail(function(data){
+          console.log("doesn't work!")
+        })
       })
     })
+
     $('#textbox').submit(function(e) {
       e.preventDefault();
       var choice = "textbox";
@@ -44,19 +58,8 @@ $(document).ready(function(){
       textbox.show();
     })
 
-    $()
 
 
-    // $.ajax({
-    //   type: 'post',
-    //   url: '/questions/new',
-    //   data: "type=" + choice
-    // }).success(function(data){
-    //   console.log("works!")
-    //   console.log(data)
-    // }).fail(function(data){
-    //   console.log("doesn't work!")
-    // })
 
   })
 
