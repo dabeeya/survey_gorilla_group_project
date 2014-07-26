@@ -1,53 +1,45 @@
 <div class="container">
-  <h1>Survey Gorilla</h1>
-    <form action="/" method="post">
-
-</div>
-
-
 <!-- SIGN IN -->
-<div class="container">
-  <h1>Sign In</h1>
+  <h3>sign in</h3>
 
-  <% if @error %>
+ <font color ="red"> <% if @error %>
     <div class="errors"><%= @error %></div>
-  <% end %>
+  <% end %></font>
 
   <form id="sign-in" method="post" action="/users">
-    <label class="label" for="email">Email</label>
-    <input type="email" name="email" placeholder="e.g., me@example.com" value="<%= @email %>"><br>
-    <label class="label" for="password">Password</label>
-    <input type="password" name="password" placeholder="6 or more characters">
+    <label class="label" for="email">Email: </label>
+    <input type="email" name="email" placeholder="e.g., me@example.com" required><br>
+    <label class="label" for="password">Password:</label>
+    <input type="password" name="password" placeholder="6 or more characters" required>
     <br>
-    <div class="submit"><input type="submit" value="Sign In"></div>
+    <div class="submit"><input type="submit" value="submit"></div>
   </form>
 
-</div>
-
-
+<br><br>
 <!-- SIGN UP -->
-<div class="container">
-  <h1>Sign Up</h1>
+  <h3>sign up</h3>
 
-  <div id="errors"><%= erb :_model_errors, :layout => false, :locals => { :model => @user } %></div>
+  <% if @user %>
+    <%= erb :_model_errors, :layout => false, :locals => { :model => @user } %>
+  <% end %>
 
   <form id="sign-up" method="post" action="/users/new">
-    <label class="label" for="name">Name</label>
-    <input type="text" name="user[name]" placeholder="e.g., joe" value="<%= @user.name %>">
+    <label class="label" for="name">Name:</label>
+    <input type="text" name="user[username]" placeholder="e.g., joe" required>
     <span id="name-errors" class="errors"></span>
     <br>
 
-    <label class="label" for="email">Email</label>
-    <input type="email" name="user[email]" placeholder="e.g., me@example.com" value="<%= @user.email %>">
+    <label class="label" for="email">Email:</label>
+    <input type="email" name="user[email]" placeholder="e.g., me@example.com" required>
     <span id="email-errors" class="errors"></span>
     <br>
 
     <label class="label" for="password">Password</label>
-    <input type="password" name="user[password]" placeholder="6 or more characters">
+    <input type="password" name="user[password]" placeholder="6 or more characters" required>
     <span id="entered_password-errors" class="errors"></span>    
     <br>
 
-    <div class="submit"><input type="submit" value="Sign Up"></div>
+    <div class="submit"><input type="submit" value="submit"></div>
   </form>
 
 </div>
