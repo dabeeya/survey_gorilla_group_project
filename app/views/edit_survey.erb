@@ -9,32 +9,32 @@
 	<thead>
 	<tr>
 		<td class="q_button_head">Edit Question</td>
-		<td class="question_style">
-		Input Style
-		</td>
-		<td>
-			Question
-		</td>
-		<td class="question_edit_head">Delete Question</td>
+		<td class="question_style_head">Input Style</td>
+		<td>Question</td>
+		<td class="q_button_head">Delete Question</td>
 	</tr>
 	</thead>
 		<% @questions.each do |question| %>
-	<tr>
-		<td ><div class="q_button edit">&#8594;</div></td>
-		<td class="question_style">
-	<%= question.style %>
-		</td>
-		<td>
-	<%= question.context %>
-		</td>
+	<tr id="row">
+		<td><div class="q_button edit">&#8594;</div></td>
+		<td class="question_style"><%= question.style %></td>
+		<td id="question_context"><%= question.context %></td>
 		<td><div class="q_button delete">&#8592;</div></td>
 	<br>
-	<% end %>
 	</tr>
+	<% end %>
+	
 </table>
 <br>
 <br>
 <button id="survey_edit">Edit Survey?</button>
+<br>
+<br>
+<button id="submit">Submit</button>
+<br>
+<br>
+<button id="cool">What would've been cool if we had more time!!!</button>
+
 </div>
 
 
