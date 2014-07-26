@@ -4,7 +4,7 @@
 	<p>your surveys are listed below.  select to view survey, edit, and/or view results:</p>
 	<ul>
 	<% @surveys.each do |survey| %>
-		<li><a href='/surveys/<%= survey.id %>'><%= survey.title  %></a></li>
+		<li><a href='/surveys/<%= survey.id %>/maker'><%= survey.title  %></a></li>
 		<% end %>
 	</ul>
 	
