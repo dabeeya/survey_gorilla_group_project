@@ -78,3 +78,21 @@ td {
 p{
   background-color:lightblue ; 
   text-align: center;
+
+}
+.q_button {
+  width: 25px;
+  height: 25px;
+  border-radius: 100%; 
+  border: 2px solid black;
+  margin: 0 auto;
+  text-align: center; 
+}
+
+.edit{
+  background-color: rgba(0, 0, 255, 0.2); 
+}
+
+.delete{
+  background-color: rgba(255, 0, 0, 0.2); 
+}
