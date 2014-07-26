@@ -7,6 +7,7 @@ end
 
 #Maker Edit Page
 get '/surveys/:id/maker' do
+	@survey = Survey.find(params[:id])
 
 	erb :edit_survey
 end
