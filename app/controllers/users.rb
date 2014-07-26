@@ -1,4 +1,10 @@
-get '/users/:id' do
+#LOGOUT
+get '/users/logout' do
+  session.clear
+  redirect '/'
+end
+
+get '/users/:id' do #
 	@user = User.find(params[:id])
 	@surveys = @user.surveys
   erb :profile
@@ -32,11 +38,4 @@ post '/users/new' do
   else
     erb :index
   end
-end
-
-
-#LOGOUT
-get '/users/logout' do
-  session.clear
-  redirect '/'
 end

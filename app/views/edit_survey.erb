@@ -1,0 +1,43 @@
+<div class="wrapper">
+
+
+<div class="main">
+	<h1>Survey</h1>
+	 <p><%= @survey.title %></p>
+ 
+<table>
+	<thead>
+	<tr>
+		<td class="q_button_head">Edit Question</td>
+		<td class="question_style">
+		Input Style
+		</td>
+		<td>
+			Question
+		</td>
+		<td class="q_button_head">Delete Question</td>
+	</tr>
+	</thead>
+		<% @questions.each do |question| %>
+	<tr>
+		<td ><div class="q_button edit">&#8594;</div></td>
+		<td class="question_style">
+	<%= question.style %>
+		</td>
+		<td>
+	<%= question.context %>
+		</td>
+		<td><div class="q_button delete">&#8592;</div></td>
+	<br>
+	<% end %>
+	</tr>
+</table>
+<br>
+<br>
+
+<button id="survey_edit">Edit Survey?</button>
+<form id="survey_results" action="/surveys/<%=@survey.id%>/results" method="get">
+<button >View Results?</button>
+</form>
+
+</div>

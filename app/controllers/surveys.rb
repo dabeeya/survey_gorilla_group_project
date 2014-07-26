@@ -16,9 +16,6 @@ get '/surveys/:id' do
 end
 
 post '/surveys/:id/questions' do
-  p "******************"
-  p params
-  # @questions = @survey.questions
   @survey = Survey.find(params[:id])
   @questions = @survey.questions
   @new_question = Question.create(survey_id: @survey.id,
@@ -30,12 +27,12 @@ post '/surveys/:id/questions' do
     @new_question.choices << choice
   end
   erb :'partials/_submitted', layout: false
-  #return @new_question.to_json
 end
 
 #Maker Edit Page
 get '/surveys/:id/maker' do
 	@survey = Survey.find(params[:id])
+	@questions = @survey.questions
 
 	erb :edit_survey
 end
@@ -44,5 +41,6 @@ patch '/surveys/:id/edit' do
 end
 
 get '/surveys/:id/results' do
-end
 
+erb :survey_results
+end

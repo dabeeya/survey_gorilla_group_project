@@ -42,3 +42,72 @@ nav li a {
 nav li a:hover {
   text-decoration: underline;
 }
+
+
+/*Survey Edit*/
+body {
+  font-family: Arial Rounded MT Bold, sans-serif;
+}
+
+
+.wrapper {
+  display: flex; 
+  height: 600px;
+}
+
+#survey_edit {
+  display: inline-block;
+}
+
+.main {
+  width: 600px; 
+  height: 400px; 
+  margin: auto; 
+}
+
+.question_style {
+  width:75px;
+  text-align: center; 
+}
+thead > tr {
+  text-align: center; 
+}
+thead td {
+  color:green;
+}
+td {
+  padding: 8px;
+}
+
+p{
+  background-color:lightblue ; 
+  text-align: center;
+
+}
+.q_button_head{
+  visibility: hidden;
+
+}
+.q_button {
+  visibility: hidden; 
+    width: 25px;
+  height: 25px;
+  border-radius: 100%; 
+  border: 2px solid black;
+  margin: 0 auto;
+  text-align: center; 
+}
+
+.edit{
+  background-color: rgba(0, 0, 255, 0.2); 
+}
+
+.delete{
+  background-color: rgba(255, 0, 0, 0.2); 
+}
+
+#survey_results {
+  position: relative;
+  float: right; 
+  display: inline-block;
+}
