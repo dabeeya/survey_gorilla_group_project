@@ -15,7 +15,7 @@
 		<td>
 			Question
 		</td>
-		<td class="question_edit_head">Delete Question</td>
+		<td class="q_button_head">Delete Question</td>
 	</tr>
 	</thead>
 		<% @questions.each do |question| %>
@@ -34,8 +34,10 @@
 </table>
 <br>
 <br>
-<button id="survey_edit">Edit Survey?</button>
-</div>
 
+<button id="survey_edit">Edit Survey?</button>
+<form id="survey_results" action="/surveys/<%=@survey.id%>/results" method="get">
+<button >View Results?</button>
+</form>
 
 </div>

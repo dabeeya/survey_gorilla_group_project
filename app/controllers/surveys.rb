@@ -19,6 +19,7 @@ end
 
 get '/surveys/:id/results' do
 
+erb :survey_results
 end
 
 
