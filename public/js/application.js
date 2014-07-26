@@ -29,9 +29,11 @@ $(document).ready(function(){
       options.hide();
       $('#new-questions').append(radio);
       radio.show();
+      var counter = 0
       $('#another-choice').submit(function(e){
         e.preventDefault();
-        $('#choices').after('<br><td><input type="radio"><input type="text" name="input"></td>');
+        counter += 1
+        $('#choices').after('<br><td>- <input type="text" name="selection[input'+counter+']"></td>');
       })
 
       $('form#radio-choice').submit(function(e) {
@@ -41,9 +43,11 @@ $(document).ready(function(){
           url: '/questions/new',
           data: $(this).serialize()
         }).success(function(data){
-          console.log("works")
-          console.log(data)
-          $('#submitted-questions').append(data)
+          console.log("works");
+          console.log(data);
+          radio.hide();
+          $('#submitted-questions').empty();
+          $('#submitted-questions').html(data)
         }).fail(function(data){
           console.log("doesn't work!")
         })

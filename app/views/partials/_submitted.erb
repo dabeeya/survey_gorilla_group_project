@@ -1,2 +1,8 @@
-<%= @new_question.context %>
-<%= @new_question.choices.first %>
+<ol><% @questions.each do |i| %>
+  <li><%= i.context %></li>
+  <ul><% i.choices.each do |j| %>
+    <li><%= j.input %></li>
+  <% end %>
+  </ul>
+<% end %>
+</ol>
