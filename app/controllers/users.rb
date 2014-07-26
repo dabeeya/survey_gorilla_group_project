@@ -1,3 +1,10 @@
+
+#LOGOUT
+get '/users/logout' do 
+  session.clear
+  redirect '/'
+end
+
 get '/users/:id' do #
 	@user = User.find(params[:id])
 	@surveys = @user.surveys
@@ -35,8 +42,3 @@ post '/users/new' do
 end
 
 
-#LOGOUT
-get '/users/logout' do 
-  session.clear
-  redirect '/'
-end
