@@ -1,12 +1,4 @@
 $(document).ready(function(){
-//   $('.button').on('click', function(event){
-//     event.preventDefault();
-//     $.post('/color', function(data){
-//       $('********(' + ********* + ')').html('*****', data.*****)
-//     });
-//   });
-// });
-
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
   var question;
   var input ="";
@@ -17,7 +9,6 @@ $(document).ready(function(){
   $('.hidden').hide();
 
   var survey_id = $('.hidden').html();
-  console.log(survey_id)
   var options = $('#question-options');
   var radio = $('#radio-option');
   var textbox = $('#text-option');
@@ -29,10 +20,12 @@ $(document).ready(function(){
 
     $('#radio').submit(function(e) {
       e.preventDefault();
-      var choice = "radio";
+     
       options.hide();
+     
       $('#new-questions').append(radio);
       radio.show();
+      
       var counter = 0
       $('#another-choice').submit(function(e){
         e.preventDefault();
@@ -58,33 +51,28 @@ $(document).ready(function(){
 
     $('#textbox').submit(function(e) {
       e.preventDefault();
-      var choice = "textbox";
+
       options.hide();
+      
       $('#new-questions').append(textbox);
       textbox.show();
-    })
 
-    $('form#textbox-choice').submit(function(e) {
-      e.preventDefault();
-      $.ajax({
-        type: 'post',
-        url: '/surveys/'+survey_id+'/questions',
-        data: $(this).serialize()
-      }).success(function(data){
-        textbox.hide();
-        $('#submitted-questions').empty();
-        $('#submitted-questions').html(data)
-      }).fail(function(data){
-        console.log("doesn't work!")
+      $('form#textbox-choice').submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+          type: 'post',
+          url: '/surveys/'+survey_id+'/questions',
+          data: $(this).serialize()
+        }).success(function(data){
+          textbox.hide();
+          $('#submitted-questions').empty();
+          $('#submitted-questions').html(data)
+        }).fail(function(data){
+          console.log("doesn't work!")
+        })
       })
     })
-
-
-
-
   })
-
-
 });
 
 

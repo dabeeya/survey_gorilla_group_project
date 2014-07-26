@@ -1,8 +1,9 @@
-<ol><% @questions.each do |i| %>
-  <li><%= i.context %></li>
-  <ul><% i.choices.each do |j| %>
-    <li><%= j.input %></li>
-  <% end %>
+<ol><% @questions.each do |question| %>
+  <li><%= question.context %></li>
+  <ul><% question.choices.each do |choice| %>
+    <li><%= choice.input %></li>
+  
   </ul>
+  <% end %>
 <% end %>
 </ol>
