@@ -3,6 +3,7 @@ get '/surveys/new' do
 end
 
 get '/surveys/:id' do
+	erb :survey
 end
 
 #Maker Edit Page
@@ -17,8 +18,3 @@ end
 
 get '/surveys/:id/results' do
 end
-
-
-
-
-
