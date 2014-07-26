@@ -1,5 +1,8 @@
 <div class="container">
-  <h1>New Survey</h1>
+  <h3>Survey: <%= @survey.title%></h3>
+  <p>Add your questions below.  To edit a question, return to your profile to find editing options.</p>
+
+  <div class="hidden"><%= @survey.id %></div>
 
   <div id ="submitted-questions"></div>
   <div id ="new-questions"></div>
@@ -11,7 +14,9 @@
   </form>
   <br>
   <br>
-
+  <form action='/' method="get">
+    <input type="submit" value="Complete Survey">
+  </form>
   <div id="question-options">
     <%= erb :'partials/_question_styles' %>
   </div>

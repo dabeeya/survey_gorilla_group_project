@@ -14,6 +14,10 @@ $(document).ready(function(){
   $('#question-options').hide();
   $('#radio-option').hide();
   $('#text-option').hide();
+  $('.hidden').hide();
+
+  var survey_id = $('.hidden').html();
+  console.log(survey_id)
   var options = $('#question-options');
   var radio = $('#radio-option');
   var textbox = $('#text-option');
@@ -33,14 +37,14 @@ $(document).ready(function(){
       $('#another-choice').submit(function(e){
         e.preventDefault();
         counter += 1
-        $('#choices').after('<br><td>- <input type="text" name="selection[input'+counter+']"></td>');
+        $('#choices').append('<br><td>- <input type="text" name="selection[input'+counter+']"></td>');
       })
 
       $('form#radio-choice').submit(function(e) {
         e.preventDefault();
         $.ajax({
           type: 'post',
-          url: '/questions/new',
+          url: '/surveys/'+survey_id+'/questions',
           data: $(this).serialize()
         }).success(function(data){
           radio.hide();
@@ -64,7 +68,7 @@ $(document).ready(function(){
       e.preventDefault();
       $.ajax({
         type: 'post',
-        url: '/questions/new',
+        url: '/surveys/'+survey_id+'/questions',
         data: $(this).serialize()
       }).success(function(data){
         textbox.hide();
