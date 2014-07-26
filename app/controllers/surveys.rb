@@ -1,5 +1,5 @@
 get '/surveys/new' do
-  erb :create
+  erb :survey_name
 end
 
 post '/surveys/new' do

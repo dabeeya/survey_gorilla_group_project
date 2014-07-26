@@ -43,8 +43,6 @@ $(document).ready(function(){
           url: '/questions/new',
           data: $(this).serialize()
         }).success(function(data){
-          console.log("works");
-          console.log(data);
           radio.hide();
           $('#submitted-questions').empty();
           $('#submitted-questions').html(data)
@@ -60,6 +58,21 @@ $(document).ready(function(){
       options.hide();
       $('#new-questions').append(textbox);
       textbox.show();
+    })
+
+    $('form#textbox-choice').submit(function(e) {
+      e.preventDefault();
+      $.ajax({
+        type: 'post',
+        url: '/questions/new',
+        data: $(this).serialize()
+      }).success(function(data){
+        textbox.hide();
+        $('#submitted-questions').empty();
+        $('#submitted-questions').html(data)
+      }).fail(function(data){
+        console.log("doesn't work!")
+      })
     })
 
 
