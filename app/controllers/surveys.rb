@@ -12,6 +12,8 @@ post '/surveys/new' do
 end
 
 get '/surveys/:id' do
+	@survey = Survey.find(params[:id])
+	@num = 0
 	erb :survey
 end
 
