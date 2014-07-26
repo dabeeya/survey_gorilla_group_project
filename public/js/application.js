@@ -1,4 +1,4 @@
-// $(document).ready(function(){
+$(document).ready(function(){
 //   $('.button').on('click', function(event){
 //     event.preventDefault();
 //     $.post('/color', function(data){
@@ -10,12 +10,48 @@
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
   var question;
   var input ="";
+  var n = 0
+  $('#question-options').hide();
+  $('#radio-option').hide();
+  $('#text-option').hide();
+  var options = $('#question-options');
+  var radio = $('#radio-option');
+  var textbox = $('#text-option');
 
-  $("#addQuestion").on("click", function() {
-    $.ajax({
-      url: "/new_question"
+  $("#addQuestion").submit(function(e) {
+    e.preventDefault();
+    var questionID = n+1;
+    $('#new-questions').append(options);
+    options.show();
+
+    $('#radio').submit(function(e) {
+      e.preventDefault();
+      var choice = "radio";
+      options.hide();
+      $('#new-questions').append(radio);
+      radio.show();
     })
+    $('#textbox').submit(function(e) {
+      e.preventDefault();
+      var choice = "textbox";
+      options.hide();
+      $('#new-questions').append(textbox);
+      textbox.show();
+    })
+    // $.ajax({
+    //   type: 'post',
+    //   url: '/questions/new',
+    //   data: "type=" + choice
+    // }).success(function(data){
+    //   console.log("works!")
+    //   console.log(data)
+    // }).fail(function(data){
+    //   console.log("doesn't work!")
+    // })
+
   })
+
+
 });
 
 

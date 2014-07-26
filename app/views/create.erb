@@ -1,8 +1,24 @@
 <div class="container">
   <h1>New Survey</h1>
 
+  <div id ="new-questions"></div>
+
   <form id="addQuestion" method="post">
-  <input type="submit" value="Add a question">
+    <input type="submit" value="Add a question">
   </form>
+  <br>
+  <br>
+
+  <div id="question-options">
+    <%= erb :'partials/_question_styles' %>
+  </div>
+
+  <div id="radio-option">
+    <%= erb :'partials/_radio' %>
+  </div>
+
+  <div id="text-option">
+    <%= erb :'partials/_text' %>
+  </div>
 
 </div>

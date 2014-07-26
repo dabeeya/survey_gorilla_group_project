@@ -1,3 +1,4 @@
-post '/new_question' do
+post '/questions/new' do
+  new_question = Question.create()
 
 end
