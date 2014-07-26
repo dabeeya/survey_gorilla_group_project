@@ -1,19 +1,18 @@
 <div align="center">
-	<form action="" method="">
+		<form>
 		<table>
-			<td><input type = "hidden" name="style"></td>
-			<td>Question: <input type="text" name="quest[context]"></td>
+			<td><input type = "hidden" name="style" value="radio"></td>
+			<td>Question: <input type="text" name="quest[context]"></td><br>
 		</table>
 
 		<table>
-			<tr>
-				<td><input type="radio"><input type="text" name="choice[input]"></td>
+			<tr id="choices">
 			</tr>
 		</table>
 		<p><input type="submit" value="Submit Question"></p>
 	</form>
 
-	<form action="" method="">
-		<input type="submit" value="Add another choice">
+	<form id="another-choice" action="" method="">
+		<button id ="another-choice" type="submit">Add a choice</button>
 	</form>
 </div>

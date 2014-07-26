@@ -30,6 +30,11 @@ $(document).ready(function(){
       options.hide();
       $('#new-questions').append(radio);
       radio.show();
+      $('#another-choice').submit(function(e){
+        e.preventDefault();
+        $('#choices').after('<br><td><input type="radio"><input type="text" name="choice[input]"></td>');
+
+      })
     })
     $('#textbox').submit(function(e) {
       e.preventDefault();
@@ -38,6 +43,10 @@ $(document).ready(function(){
       $('#new-questions').append(textbox);
       textbox.show();
     })
+
+    $()
+
+
     // $.ajax({
     //   type: 'post',
     //   url: '/questions/new',
