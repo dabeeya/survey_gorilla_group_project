@@ -2,6 +2,10 @@ get '/surveys/new' do
   erb :create
 end
 
+post '/surveys/new' do
+  erb :create
+end
+
 get '/surveys/:id' do
 end
 
@@ -16,7 +20,6 @@ end
 
 get '/surveys/:id/results' do
 end
-
 
 
 
