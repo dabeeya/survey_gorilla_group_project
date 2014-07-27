@@ -1,4 +1,6 @@
 <div class="container">
+	<br>
+	<br>
 	<% @surveys.each do |survey| %>
 		<% next if !survey.open && !logged_in?  %>
 			<p><a href="/surveys/<%=survey.id%>/results"><%= survey.title%></a>	</p>

@@ -37,8 +37,18 @@ end
 get '/surveys/:id' do
 	@survey = Survey.find(params[:id])
   redirect '/' if current_user.nil? && !@survey.open
-	@num = 0
+	@increment = Increment.new
 	erb :survey
+end
+
+delete '/surveys/:id' do
+  p "*" * 50
+  p params
+  if logged_in?
+    # Survey.delete(params[:id])
+  else
+    redirect '/'
+  end
 end
 
 post '/surveys/:id/questions' do
@@ -87,6 +97,7 @@ get '/surveys/:id/results' do
   if logged_in?
     @survey = Survey.find(params[:id])
     @responses = @survey.compile_responses
+    @increment = Increment.new
     erb :survey_results
   else
     redirect '/'
