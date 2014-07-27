@@ -2,7 +2,7 @@
 	<p><%= @survey.title %></p>
 	 <form action="/surveys/submit" method="post">
 <% @survey.questions.each do |question| %>
-<p>Question <%=@num+=1%>: <%=question.context %></p>
+<p>Question <%=@incrementer.next%>: <%=question.context %></p>
 	<% if question.style == "text" %>
 		<input type="text" name=<%=question.id%>>
 	<% elsif question.style == "radio" %>
