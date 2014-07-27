@@ -1,8 +1,24 @@
 $(document).ready(function(){
+
+	$('#survey_edit').click(function(){
+		$('.q_button_head').css("visibility", "visible");
+		$('.q_button').css("visibility", "visible");
+		$('.q_button.delete').on("click", function(){
+			$(this).parent('td').parent('#row').remove();
+		});
+		$('.q_button.edit').on("click", function(){
+			$(this).parent('td').parent('#row').html();
+		});
+	});
+	$('#cool').click(function(){
+		$('#cool').paulund_modal_box();
+	});
+
   $('#question-options').hide();
   $('#radio-option').hide();
   $('#text-option').hide();
   $('.hidden').hide();
+
 
   var survey_id = $('.hidden').html();
   var counter = 0
