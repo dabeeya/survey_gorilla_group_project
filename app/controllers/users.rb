@@ -1,6 +1,7 @@
 get '/' do
   if logged_in?
-    @surveys = Survey.all
+    @user = User.find(session[:user_id])
+    @surveys = @user.surveys
     erb :profile
   else
   # Look in app/views/index.erb
