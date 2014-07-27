@@ -2,7 +2,8 @@
   <%= (index+1).to_s + ". " + question.context %><br>
   <% if question.choices != nil %>
     <% question.choices.each do |choice| %>
-      <%= choice.input %><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= choice.input %><br>
     <% end %>
+    <br><br>
   <% end %>
 <% end %>
