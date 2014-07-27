@@ -14,6 +14,31 @@ $(document).ready(function(){
 		$('#cool').paulund_modal_box();
 	});
 
+  $('#surveys').on('click', '.deleteSurvey', function(){
+    $(this).append('<br><br><div class="decision">Are you sure you want to delete this survey?<br><br> <button id="yes">Yes, please</button> <br><br> <button id="no">Absolutely not</button> </div>')
+
+    $('#yes').click(function(e){
+      e.preventDefault();
+
+
+      $(this).parent().remove();
+      $.ajax({
+        url: '/surveys/'+survey_id+'',
+        type: 'delete',
+        data: $(this).serialize
+      }).success(function(data) {
+        console.log(data)
+        $('#surveys').hide();
+        $('#surveys').show();
+      })
+    })
+    $('#no').click(function(){
+      console.log("works!")
+      $(this).parent().remove();
+    })
+
+   })
+
   $('#question-options').hide();
   $('#radio-option').hide();
   $('#text-option').hide();
@@ -23,15 +48,6 @@ $(document).ready(function(){
   var survey_id = $('.hidden').html();
   var counter = 0
 
-  $('#surveys').on('click', '.deleteSurvey', function(){
-    $(this).html('<br><br><div id="decision">Are you sure you want to delete this survey?<br><br> <span class="yes">[Yes]</span> <br><br> <span class="no">[No]</span> </div>')
-    // $(this).parent().remove();
-   })
-
-  $('#decision').on('click', '.no', function(){
-    console.log("works!")
-    $('.deleteSurvey').hide();
-  })
 
   $("#addQuestion").submit(function(e) {
     e.preventDefault();
