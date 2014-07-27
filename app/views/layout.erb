@@ -28,8 +28,6 @@
       <% if current_user %>
         <li><a href="/users/<%= current_user.id %>">profile</a></li>
         <li><a href="/users/logout">sign out</a></li>
-      <% else %>
-        <li><a href="/">sign in/sign up</a></li>
       <% end %>
     </ul>
   </nav>
