@@ -1,8 +1,5 @@
 $(document).ready(function(){
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
-  var question;
-  var input ="";
-  var n = 0
   $('#question-options').hide();
   $('#radio-option').hide();
   $('#text-option').hide();
@@ -12,6 +9,8 @@ $(document).ready(function(){
   var options = $('#question-options');
   var radio = $('#radio-option');
   var textbox = $('#text-option');
+  console.log(textbox)
+  var counter = 0
 
   $("#addQuestion").submit(function(e) {
     e.preventDefault();
@@ -19,28 +18,21 @@ $(document).ready(function(){
     options.show();
   })
 
-  $('#radio').submit(function(e) {
+  $('form#radio').submit(function(e) {
     e.preventDefault();
-
     $('#radio-choice')[0].reset();
-    $('#choices').html('');
-    $('#choices').html('<tr id="choices"></tr>')
-    console.log($('#choices'));
-
     options.hide();
-    
     $('#new-questions').append(radio);
     radio.show();
-    
-    var counter = 0
-    
-    $('#another-choice').submit(function(e){
-      e.preventDefault();
-      counter += 1
-      $('#choices').append('<br><td>- <input type="text" name="selection[input'+counter+']" required></td>');
-    })
+    $('#choices').empty();
   })
 
+  $('#another-choice').submit(function(e){
+    e.preventDefault();
+    counter += 1
+    $('#choices').append('<br><td>- <input type="text" name="selection[input'+counter+']" required></td>');
+  })
+  
   $('form#radio-choice').submit(function(e) {
     e.preventDefault();
     $.ajax({
@@ -56,33 +48,31 @@ $(document).ready(function(){
       console.log("doesn't work!")
     })
   })
+  
+
+  $('form#textbox').submit(function(e) {
+    e.preventDefault();
+    $('#textbox-choice')[0].reset();
+    $('#new-questions').append($('#text-option'));
+    textbox.show();
+    options.hide();
   })
-
-    // $('#textbox').submit(function(e) {
-    //   e.preventDefault();
-
-    //   options.hide();
       
-    //   $('#new-questions').append(textbox);
-    //   textbox.show();
-
-    //   $('form#textbox-choice').submit(function(e) {
-    //     e.preventDefault();
-    //     $.ajax({
-    //       type: 'post',
-    //       url: '/surveys/'+survey_id+'/questions',
-    //       data: $(this).serialize()
-    //     }).success(function(data){
-    //       textbox.hide();
-    //       $('#submitted-questions').empty();
-    //       $('#submitted-questions').html(data)
-    //     }).fail(function(data){
-    //       console.log("doesn't work!")
-    //     })
-    //   })
-    // })
-  // })
-// });
+  $('form#textbox-choice').submit(function(e) {
+    e.preventDefault();
+    $.ajax({
+      type: 'post',
+      url: '/surveys/'+survey_id+'/questions',
+      data: $(this).serialize()
+    }).success(function(data){
+      textbox.hide();
+      $('#submitted-questions').empty();
+      $('#submitted-questions').html(data)
+    }).fail(function(data){
+      console.log("doesn't work!")
+    })
+  })
+})
 
 
 
