@@ -7,7 +7,10 @@ get '/surveys/new' do
 end
 
 post '/surveys/new' do
-  @survey = Survey.create(title:params[:name], user_id: session[:user_id])
+  open = false
+  open = true if params[open] == "true" 
+
+  @survey = Survey.create(title:params[:name], user_id: session[:user_id], open: open)
   erb :create_survey
 end
 

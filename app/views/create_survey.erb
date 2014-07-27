@@ -11,7 +11,7 @@
   <br>
   <center>
   <form id="addQuestion" method="post">
-    <input type="submit" value="Add a question">
+    <input class="buttons_2" type="submit" value="Add a question">
   </form>
 </center>
   <br>
@@ -19,14 +19,15 @@
   <center>
   <table>
   <td><form action='/' method="get">
-    <input type="submit" value="Complete Survey">
+    <input class="buttons_2" type="submit" value="Create This Survey">
   </form></td>
 
   <td><form action='/surveys/<%= @survey.id %>' method="get">
-    <input type="submit" value="Share Survey">
+    <input class="buttons_2" type="submit" value="Share Survey">
   </form></td>
 </table>
 </center>
+
   <div id="question-options">
     <%= erb :'partials/_question_styles' %>
   </div>

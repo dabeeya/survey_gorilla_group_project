@@ -74,6 +74,15 @@ nav li a:hover {
   background-color: #CCFF99;
 }
 
+.buttons_3 {
+  color: black;
+  background-color: gold;
+  padding:5px;
+  border: 1px solid gold;
+}
+
+
+
 /*Survey Edit*/
 body {
   font-family: Arial Rounded MT Bold, sans-serif;

@@ -1,9 +1,13 @@
 <div class="container">
-  <h3>name your survey</h3>
+  
   <form action="/surveys/new" method="post">
-    <input type="text" name="name" placeholder="type the name of your survey here" size="50" required><br><br>
-    <input class="buttons_2" type="submit" value="submit">
+  <h3>what is the name of your survey?</h3>
+    <input type="text" name="name" placeholder="type the name of your survey here" size="50" required>
+  <h3>make this survey public?</h3>  
+    <input type="radio" name="open" value="true" required> Yes<br><br>
+    <input type="radio" name="open" value="false" required> No<br>
   <br>
+  <input class="buttons_2" type="submit" value="next">
   </form>
 
 </div>
