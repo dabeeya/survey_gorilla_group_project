@@ -18,14 +18,15 @@ post '/surveys/submit' do
 		if choices.empty?
 			choices << Choice.create(input: input, question_id: question.to_s)
 		end
-		Response.create(choice_id: choices.first.id, user_id: current_user.id)
+		Response.create(choice_id: choices.first.id, user_id: poll_taker)
 	end
-	redirect "users/#{current_user.id}"
+	redirect "/"
 
 	end
 
 get '/surveys/:id' do
 	@survey = Survey.find(params[:id])
+  redirect '/' if current_user.nil? && !@survey.open
 	@num = 0
 	erb :survey
 end
