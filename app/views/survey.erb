@@ -7,16 +7,13 @@
 		<input type="text" name=<%=question.id%>>
 	<% elsif question.style == "radio" %>
 		<% question.choices.each do |choice| %>
-		
-
 		<input type="radio" name=<%=question.id%> 
 		value="<%=choice.input%>"> <%=choice.input%> <br>
 		<% end %>
 	<% end %>
-
-
 <% question.choices %>
 <% end %>
+<br>
 <br>
 <input type="submit" value="Submit Survey!">
 </form>

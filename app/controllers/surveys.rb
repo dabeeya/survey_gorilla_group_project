@@ -25,8 +25,13 @@ post '/surveys/submit' do
 	end
 
 get '/surveys/results' do
- @surveys = Survey.all  
- erb :survey_all_results
+  if logged_in?
+    user = User.find(session[:user_id])
+    @surveys = user.surveys 
+    erb :survey_all_results
+  else
+    redirect '/'
+  end
 end
 
 get '/surveys/:id' do
@@ -79,8 +84,12 @@ patch '/surveys/:id/edit' do
 end
 
 get '/surveys/:id/results' do
-	@survey = Survey.find(params[:id])
-	@responses = @survey.compile_responses
-  @increment = Increment.new
-erb :survey_results
+  if logged_in?
+    @survey = Survey.find(params[:id])
+    @responses = @survey.compile_responses
+    @increment = Increment.new
+    erb :survey_results
+  else
+    redirect '/'
+  end
 end

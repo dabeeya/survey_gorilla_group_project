@@ -31,7 +31,9 @@
 <button id="survey_edit">Edit Survey?</button>
 <br>
 <br>
-<button id="submit">Submit</button>
+<form action="/surveys/<%= @survey.id %>" method="get">
+	<div class="submit"><input type="submit" value="Share survey"></div>
+</form>
 <br>
 <br>
 <button id="cool">What would've been cool if we had more time!!!</button>
