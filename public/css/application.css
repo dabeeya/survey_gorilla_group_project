@@ -58,6 +58,21 @@ nav li a:hover {
   text-decoration: underline;
 }
 
+/* Button styling */
+
+.buttons_2 {
+  color: white;
+  padding: 7px;
+  border: 1px solid;
+  border-color: #66CC66;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background-color: #66CC66;
+}
+
+.buttons_2:hover {
+  border-color: #CCFF99;
+  background-color: #CCFF99;
+}
 
 /*Survey Edit*/
 body {
