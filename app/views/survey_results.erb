@@ -1,0 +1,20 @@
+<div class="container">
+	<%@responses.each do |question, info| %>
+		<p>Question: <%= question %></p>
+		<p><%= info[:quest] %></p>
+			<% if info[:style] == "text" %>
+
+			<span>User Inputs: </span>
+
+				<% info[:answers].each do |answer, times| %>
+					<span> <%= answer %> </span>
+					<% end %>
+			<% else %>
+				<% info[:answers].each do |answer, times| %>
+				<p><%= answer %>: <%= times %></p>
+				<% end %>
+			<% end %>
+	<% end %>
+
+
+</div>

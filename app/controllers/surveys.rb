@@ -69,6 +69,7 @@ patch '/surveys/:id/edit' do
 end
 
 get '/surveys/:id/results' do
-
+	@survey = Survey.find(params[:id])
+	@responses = @survey.compile_responses
 erb :survey_results
 end
