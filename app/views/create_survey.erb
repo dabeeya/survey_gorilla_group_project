@@ -1,0 +1,37 @@
+<div class="container">
+  <h3>Survey: <%= @survey.title%></h3>
+  <p>Add your questions below.  To edit a question, return to your profile to find editing options.</p>
+
+  <div class="hidden"><%= @survey.id %></div>
+
+  <div id ="submitted-questions"></div>
+  <div id ="new-questions"></div>
+  <br>
+  <br>
+  <br>
+  <form id="addQuestion" method="post">
+    <input type="submit" value="Add a question">
+  </form>
+  <br>
+  <br>
+  <form action='/' method="get">
+    <input type="submit" value="Complete Survey">
+  </form>
+
+  <form action='/surveys/<%= @survey.id %>' method="get">
+    <input type="submit" value="Share Survey">
+  </form>
+
+  <div id="question-options">
+    <%= erb :'partials/_question_styles' %>
+  </div>
+
+  <div id="radio-option">
+    <%= erb :'partials/_radio' %>
+  </div>
+
+  <div id="text-option">
+    <%= erb :'partials/_text' %>
+  </div>
+
+</div>
