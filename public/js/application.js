@@ -23,6 +23,16 @@ $(document).ready(function(){
   var survey_id = $('.hidden').html();
   var counter = 0
 
+  $('#surveys').on('click', '.deleteSurvey', function(){
+    $(this).html('<br><br><div id="decision">Are you sure you want to delete this survey?<br><br> <span class="yes">[Yes]</span> <br><br> <span class="no">[No]</span> </div>')
+    // $(this).parent().remove();
+   })
+
+  $('#decision').on('click', '.no', function(){
+    console.log("works!")
+    $('.deleteSurvey').hide();
+  })
+
   $("#addQuestion").submit(function(e) {
     e.preventDefault();
     $('#new-questions').append($('#question-options'));
@@ -41,7 +51,7 @@ $(document).ready(function(){
   $('#another-choice').submit(function(e){
     e.preventDefault();
     counter += 1
-    $('#choices').append('<br><p>- <input type="text" name="selection[input'+counter+']" required> <span class="removeVar"> Remove Choice</span</p>');
+    $('#choices').append('<br><p>- <input type="text" name="selection[input'+counter+']" required> <span class="removeVar"> Remove Choice</span></p>');
   })
 
   $('#choices').on('click', '.removeVar', function(){

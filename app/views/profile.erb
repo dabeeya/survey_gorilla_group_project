@@ -2,12 +2,13 @@
 
 <h3>welcome back, <a href='/users/<%= @user.id %>'><%= @user.username %></a>!</h3>
 	<p>your surveys are listed below.  select to view survey, edit, and/or view results:</p>
+	<div id = "surveys">
 	<ul>
 	<% @surveys.each do |survey| %>
-		<li><a href='/surveys/<%= survey.id %>/maker'><%= survey.title  %></a></li>
+		<li><a href='/surveys/<%= survey.id %>/maker'><%= survey.title  %></a> <small><span class="deleteSurvey"> [Delete Survey]</span></small></li><br>
 		<% end %>
 	</ul>
-
+</div>
 	<form action="/surveys/new" method="get">
   <input class="buttons_2" type="submit" value="create new survey">
   <br>
