@@ -55,6 +55,10 @@ body {
   height: 600px;
 }
 
+#survey_edit {
+  display: inline-block;
+}
+
 .main {
   width: 600px; 
   height: 400px; 
@@ -76,12 +80,17 @@ td {
 }
 
 p{
-  background-color:lightblue ; 
+  background-color:rgb(234, 246, 250) ; 
   text-align: center;
 
 }
+.q_button_head{
+  visibility: hidden;
+
+}
 .q_button {
-  width: 25px;
+  visibility: hidden; 
+    width: 25px;
   height: 25px;
   border-radius: 100%; 
   border: 2px solid black;
@@ -110,7 +119,8 @@ p{
   background-color: rgba(255, 0, 0, 0.2); 
 }
 
-
-#question_context{
-
+#survey_results {
+  position: relative;
+  float: right; 
+  display: inline-block;
 }

@@ -1,6 +1,5 @@
-
 #LOGOUT
-get '/users/logout' do 
+get '/users/logout' do
   session.clear
   redirect '/'
 end
@@ -8,7 +7,7 @@ end
 get '/users/:id' do #
 	@user = User.find(params[:id])
 	@surveys = @user.surveys
-  erb :profile 
+  erb :profile
 end
 
 #----------- SESSIONS -----------
@@ -31,14 +30,12 @@ end
 
 
 #SIGN-UP
-post '/users/new' do 
+post '/users/new' do
   @user = User.create(params[:user])
   if @user.save
     session[:user_id] = @user.id
-    redirect '/users/#{user.id}'  
+    redirect '/users/#{user.id}'
   else
     erb :index
   end
 end
-
-
