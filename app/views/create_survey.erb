@@ -9,19 +9,24 @@
   <br>
   <br>
   <br>
+  <center>
   <form id="addQuestion" method="post">
     <input type="submit" value="Add a question">
   </form>
+</center>
   <br>
   <br>
-  <form action='/' method="get">
+  <center>
+  <table>
+  <td><form action='/' method="get">
     <input type="submit" value="Complete Survey">
-  </form>
+  </form></td>
 
-  <form action='/surveys/<%= @survey.id %>' method="get">
+  <td><form action='/surveys/<%= @survey.id %>' method="get">
     <input type="submit" value="Share Survey">
-  </form>
-
+  </form></td>
+</table>
+</center>
   <div id="question-options">
     <%= erb :'partials/_question_styles' %>
   </div>
