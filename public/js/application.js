@@ -25,8 +25,12 @@ $(document).ready(function(){
   $('#another-choice').submit(function(e){
     e.preventDefault();
     counter += 1
-    $('#choices').append('<br><td>- <input type="text" name="selection[input'+counter+']" required></td>');
+    $('#choices').append('<br><p>- <input type="text" name="selection[input'+counter+']" required> <span class="removeVar"> Remove Choice</span</p>');
   })
+
+  $('#choices').on('click', '.removeVar', function(){
+     $(this).parent().remove();
+   })
   
   $('form#radio-choice').submit(function(e) {
     e.preventDefault();
