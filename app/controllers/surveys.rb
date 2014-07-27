@@ -24,6 +24,11 @@ post '/surveys/submit' do
 
 	end
 
+get '/surveys/results' do
+ @surveys = Survey.all  
+ erb :survey_all_results
+end
+
 get '/surveys/:id' do
 	@survey = Survey.find(params[:id])
   redirect '/' if current_user.nil? && !@survey.open
