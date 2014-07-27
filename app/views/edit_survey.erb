@@ -1,10 +1,7 @@
 <div class="wrapper">
-
-
 <div class="main">
-	<h1>Survey</h1>
-	 <p><%= @survey.title %></p>
- 
+	<!-- <h1>Survey</h1> -->
+	 <p><%= @survey.title %></p> 
 <table>
 	<thead>
 	<tr>
@@ -23,19 +20,26 @@
 	<br>
 	</tr>
 	<% end %>
-	
+</table>
+
+<br><br><br><br>
+
+<center>
+<table width="450">
+<td><button id="survey_edit">Edit survey</button></td>
+<td><form action="/surveys/<%= @survey.id %>" method="get">
+	<div class="submit"><input type="submit" value="Share survey"></div>
+</form></td>
+<td><form action="/surveys/<%= @survey.id %>/results" method="get">
+	<div class="submit"><input type="submit" value="View results"></div>
+</form></td>
 </table>
 <br>
 <br>
-
-<button id="survey_edit">Edit Survey?</button>
-<br>
-<br>
-<form action="/surveys/<%= @survey.id %>" method="get">
-	<div class="submit"><input type="submit" value="Share survey"></div>
-</form>
-<br>
 <br>
 <button id="cool">What would've been cool if we had more time!!!</button>
+</center>
+
+<br><br><br><br>
 
 </div>
