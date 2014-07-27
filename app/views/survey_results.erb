@@ -1,6 +1,6 @@
 <div class="container">
 	<%@responses.each do |question, info| %>
-		<p>Question: <%= question %></p>
+		<p>Question: <%= @increment.next %></p>
 		<p><%= info[:quest] %></p>
 			<% if info[:style] == "text" %>
 
