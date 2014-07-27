@@ -96,7 +96,20 @@ p{
   border: 2px solid black;
   margin: 0 auto;
   text-align: center; 
+  visibility: hidden;
 }
+
+.q_button_head {
+  visibility: hidden;
+}
+
+/*.q_button_edit {
+  visibility: hidden;
+}
+
+.q_button_delete {
+  visibility: hidden;
+}*/
 
 .edit{
   background-color: rgba(0, 0, 255, 0.2); 

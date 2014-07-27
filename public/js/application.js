@@ -1,13 +1,20 @@
 $(document).ready(function(){
-//   $('.button').on('click', function(event){
-//     event.preventDefault();
-//     $.post('/color', function(data){
-//       $('********(' + ********* + ')').html('*****', data.*****)
-//     });
-//   });
-// });
+	$('#survey_edit').click(function(){
+		$('.q_button_head').css("visibility", "visible");
+		$('.q_button').css("visibility", "visible");
+		$('.q_button.delete').on("click", function(){
+			$(this).parent('td').parent('#row').remove();
+		});
+		$('.q_button.edit').on("click", function(){
+			$(this).parent('td').parent('#row').html();
+		});
+	});
+	$('#cool').click(function(){
+		$('#cool').paulund_modal_box();
+	});
+});
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+
   var question;
   var input ="";
   var n = 0
@@ -15,6 +22,7 @@ $(document).ready(function(){
   $('#radio-option').hide();
   $('#text-option').hide();
   $('.hidden').hide();
+
 
   var survey_id = $('.hidden').html();
   console.log(survey_id)
