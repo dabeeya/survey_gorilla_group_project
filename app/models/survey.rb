@@ -7,13 +7,15 @@ class Survey < ActiveRecord::Base
   def compile_responses 
   	results = Hash.new(0)
   	questions.each do |question|
-  		results[question.context] = Hash.new(0)
-  		results[question.context][:style] = question.style
+  		results[question.id] = Hash.new(0)
+  		results[question.id][:style] = question.style
+  		results[question.id][:quest] = question.context
+  		results[question.id][:answers] = Hash.new(0)
   		question.choices.each do |choice|
   			selections = responses.where(choice_id: choice.id).size
-  			results[question.context][choice.input] = selections
-  		end
-  		puts results 
+  			results[question.id][:answers][choice.input] = selections
+  		end 
   	end 
+  	results
   end
 end
