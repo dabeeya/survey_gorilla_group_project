@@ -4,7 +4,6 @@ get '/' do
     @surveys = @user.surveys
     erb :profile
   else
-  # Look in app/views/index.erb
     erb :index
   end
 end
