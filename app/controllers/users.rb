@@ -1,4 +1,7 @@
 get '/' do
+
+@public_surveys = Survey.where("open = 'true'")
+  
   if logged_in?
     @user = User.find(session[:user_id])
     @surveys = @user.surveys
@@ -6,6 +9,7 @@ get '/' do
   else
     erb :index
   end
+
 end
 
 #LOGOUT
