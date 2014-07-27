@@ -25,8 +25,9 @@ post '/surveys/submit' do
 	end
 
 get '/surveys/results' do
- @surveys = Survey.all  
- erb :survey_all_results
+  user = User.find(session[:user_id])
+  @surveys = user.surveys 
+  erb :survey_all_results
 end
 
 get '/surveys/:id' do
