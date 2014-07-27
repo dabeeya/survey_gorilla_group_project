@@ -2,8 +2,8 @@
   margin: 20px auto;
   width: 600px;
   padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
 }
+
 th {
   text-align: left;
 }
@@ -23,6 +23,7 @@ nav .brand, nav .brand a {
   width: 60%;
   display: inline-block;
 }
+
 nav ul {
   display: inline-block;
   width: 30%;
