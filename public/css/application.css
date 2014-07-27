@@ -1,3 +1,8 @@
+a {
+  text-decoration: none; 
+  color:grey;
+}
+
 .container {
   margin: 20px auto;
   width: 600px;
@@ -132,4 +137,9 @@ p{
   position: relative;
   float: right; 
   display: inline-block;
+}
+
+#stats_link {
+  position: relative; 
+  float:right;
 }
