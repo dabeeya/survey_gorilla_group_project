@@ -8,7 +8,7 @@ end
 
 post '/surveys/new' do
   @survey = Survey.create(title:params[:name], user_id: session[:user_id])
-  erb :create
+  erb :create_survey
 end
 
 post '/surveys/submit' do
@@ -23,6 +23,11 @@ post '/surveys/submit' do
 	redirect "/"
 
 	end
+
+get '/surveys/results' do
+ @surveys = Survey.all  
+ erb :survey_all_results
+end
 
 get '/surveys/:id' do
 	@survey = Survey.find(params[:id])
