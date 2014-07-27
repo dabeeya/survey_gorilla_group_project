@@ -1,8 +1,9 @@
-<ol><% @questions.each do |i| %>
-  <li><%= i.context %></li>
-  <ul><% i.choices.each do |j| %>
-    <li><%= j.input %></li>
+<% @questions.each_with_index do |question, index| %>
+  <%= (index+1).to_s + ". " + question.context %><br>
+  <% if question.choices != nil %>
+    <% question.choices.each do |choice| %>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= choice.input %><br>
+    <% end %>
+    <br><br>
   <% end %>
-  </ul>
 <% end %>
-</ol>
