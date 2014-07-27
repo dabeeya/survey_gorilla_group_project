@@ -41,6 +41,16 @@ get '/surveys/:id' do
 	erb :survey
 end
 
+delete '/surveys/:id' do
+  p "*" * 50
+  p params
+  if logged_in?
+    # Survey.delete(params[:id])
+  else
+    redirect '/'
+  end
+end
+
 post '/surveys/:id/questions' do
   p "*" * 40
   puts params
