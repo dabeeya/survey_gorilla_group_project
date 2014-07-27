@@ -1,4 +1,4 @@
-class Incrementer
+class Increment
 	def initialize
 		@place = 0 
 	end

@@ -32,7 +32,7 @@ end
 get '/surveys/:id' do
 	@survey = Survey.find(params[:id])
   redirect '/' if current_user.nil? && !@survey.open
-	@incrementer = Incrementer.new
+	@increment = Increment.new
 	erb :survey
 end
 
@@ -81,6 +81,6 @@ end
 get '/surveys/:id/results' do
 	@survey = Survey.find(params[:id])
 	@responses = @survey.compile_responses
-  @incrementer = Incrementer.new
+  @increment = Increment.new
 erb :survey_results
 end
