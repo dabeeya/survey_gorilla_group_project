@@ -6,24 +6,20 @@ $(document).ready(function(){
   $('.hidden').hide();
 
   var survey_id = $('.hidden').html();
-  var options = $('#question-options');
-  var radio = $('#radio-option');
-  var textbox = $('#text-option');
-  console.log(textbox)
   var counter = 0
 
   $("#addQuestion").submit(function(e) {
     e.preventDefault();
-    $('#new-questions').append(options);
-    options.show();
+    $('#new-questions').append($('#question-options'));
+    $('#question-options').show();
   })
 
   $('form#radio').submit(function(e) {
     e.preventDefault();
     $('#radio-choice')[0].reset();
-    options.hide();
-    $('#new-questions').append(radio);
-    radio.show();
+    $('#question-options').hide();
+    $('#new-questions').append($('#radio-option'));
+    $('#radio-option').show();
     $('#choices').empty();
   })
 
@@ -40,7 +36,7 @@ $(document).ready(function(){
       url: '/surveys/'+survey_id+'/questions',
       data: $(this).serialize()
     }).success(function(data){
-      radio.hide();
+      $('#radio-option').hide();
       $('#submitted-questions').empty();
       $('#submitted-questions').html(data);
       console.log("sending")
@@ -54,8 +50,8 @@ $(document).ready(function(){
     e.preventDefault();
     $('#textbox-choice')[0].reset();
     $('#new-questions').append($('#text-option'));
-    textbox.show();
-    options.hide();
+    $('#text-option').show();
+    $('#question-options').hide();
   })
       
   $('form#textbox-choice').submit(function(e) {
@@ -65,7 +61,7 @@ $(document).ready(function(){
       url: '/surveys/'+survey_id+'/questions',
       data: $(this).serialize()
     }).success(function(data){
-      textbox.hide();
+      $('#text-option').hide();
       $('#submitted-questions').empty();
       $('#submitted-questions').html(data)
     }).fail(function(data){
