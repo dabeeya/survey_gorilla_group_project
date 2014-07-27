@@ -31,15 +31,19 @@ get '/surveys/:id' do
 end
 
 post '/surveys/:id/questions' do
+  p "*" * 40
+  puts params
   @survey = Survey.find(params[:id])
   @questions = @survey.questions
-  @new_question = Question.create(survey_id: @survey.id,
-                                 context: params[:context],
-                                 style: params[:style])
-  returned_choices =  params[:selection]
-  returned_choices.each do |option|
-    choice = Choice.create(input: option[1])
-    @new_question.choices << choice
+  @new_question = Question.create(survey_id: @survey.id, context: params[:context], style: params[:style])
+  returned_choices = params[:selection]
+  p "*" * 40
+  p returned_choices[:input]
+  if returned_choices[:input] != "" || nil
+    returned_choices.each do |option|
+      choice = Choice.create(input: option[1])
+      @new_question.choices << choice
+    end
   end
   erb :'partials/_submitted', layout: false
 end

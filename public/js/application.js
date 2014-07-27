@@ -17,63 +17,72 @@ $(document).ready(function(){
     e.preventDefault();
     $('#new-questions').append(options);
     options.show();
+  })
 
-    $('#radio').submit(function(e) {
+  $('#radio').submit(function(e) {
+    e.preventDefault();
+
+    $('#radio-choice')[0].reset();
+    $('#choices').html('');
+    $('#choices').html('<tr id="choices"></tr>')
+    console.log($('#choices'));
+
+    options.hide();
+    
+    $('#new-questions').append(radio);
+    radio.show();
+    
+    var counter = 0
+    
+    $('#another-choice').submit(function(e){
       e.preventDefault();
-     
-      options.hide();
-     
-      $('#new-questions').append(radio);
-      radio.show();
-      
-      var counter = 0
-      $('#another-choice').submit(function(e){
-        e.preventDefault();
-        counter += 1
-        $('#choices').append('<br><td>- <input type="text" name="selection[input'+counter+']"></td>');
-      })
-
-      $('form#radio-choice').submit(function(e) {
-        e.preventDefault();
-        $.ajax({
-          type: 'post',
-          url: '/surveys/'+survey_id+'/questions',
-          data: $(this).serialize()
-        }).success(function(data){
-          radio.hide();
-          $('#submitted-questions').empty();
-          $('#submitted-questions').html(data)
-        }).fail(function(data){
-          console.log("doesn't work!")
-        })
-      })
-    })
-
-    $('#textbox').submit(function(e) {
-      e.preventDefault();
-
-      options.hide();
-      
-      $('#new-questions').append(textbox);
-      textbox.show();
-
-      $('form#textbox-choice').submit(function(e) {
-        e.preventDefault();
-        $.ajax({
-          type: 'post',
-          url: '/surveys/'+survey_id+'/questions',
-          data: $(this).serialize()
-        }).success(function(data){
-          textbox.hide();
-          $('#submitted-questions').empty();
-          $('#submitted-questions').html(data)
-        }).fail(function(data){
-          console.log("doesn't work!")
-        })
-      })
+      counter += 1
+      $('#choices').append('<br><td>- <input type="text" name="selection[input'+counter+']" required></td>');
     })
   })
-});
+
+  $('form#radio-choice').submit(function(e) {
+    e.preventDefault();
+    $.ajax({
+      type: 'post',
+      url: '/surveys/'+survey_id+'/questions',
+      data: $(this).serialize()
+    }).success(function(data){
+      radio.hide();
+      $('#submitted-questions').empty();
+      $('#submitted-questions').html(data);
+      console.log("sending")
+    }).fail(function(data){
+      console.log("doesn't work!")
+    })
+  })
+  })
+
+    // $('#textbox').submit(function(e) {
+    //   e.preventDefault();
+
+    //   options.hide();
+      
+    //   $('#new-questions').append(textbox);
+    //   textbox.show();
+
+    //   $('form#textbox-choice').submit(function(e) {
+    //     e.preventDefault();
+    //     $.ajax({
+    //       type: 'post',
+    //       url: '/surveys/'+survey_id+'/questions',
+    //       data: $(this).serialize()
+    //     }).success(function(data){
+    //       textbox.hide();
+    //       $('#submitted-questions').empty();
+    //       $('#submitted-questions').html(data)
+    //     }).fail(function(data){
+    //       console.log("doesn't work!")
+    //     })
+    //   })
+    // })
+  // })
+// });
 
 
 
