@@ -17,6 +17,11 @@ end
 get '/users/:id' do #
 	@user = User.find(params[:id])
 	@surveys = @user.surveys
+  # @survey_id_ary = []
+  # @surveys.each do |x|
+  #   @survey_id_ary << x.id
+  # end
+  # @survey_id_ary
   erb :profile
 end
 
