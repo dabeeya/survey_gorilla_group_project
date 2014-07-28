@@ -1,4 +1,4 @@
-require 'faker'
+# require 'faker'
 
 anonymous = User.create(username: 'anon', email: 'anon@anon.com', password: 'anon')
 

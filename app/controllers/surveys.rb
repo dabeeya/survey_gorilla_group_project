@@ -37,6 +37,7 @@ get '/surveys/results' do
   end
 end
 
+
 get '/surveys/:id' do
 	@survey = Survey.find(params[:id])
   redirect '/' if current_user.nil? && !@survey.open
@@ -44,11 +45,10 @@ get '/surveys/:id' do
 	erb :survey
 end
 
-delete '/surveys/:id' do
-  p "*" * 50
-  p params
+post '/surveys/:id' do
   if logged_in?
-    # Survey.delete(params[:id])
+    Survey.delete(params[:id])
+    redirect '/'
   else
     redirect '/'
   end

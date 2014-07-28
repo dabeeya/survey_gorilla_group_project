@@ -1,3 +1,7 @@
+after do
+  ActiveRecord::Base.connection.close
+end
+
 get '/' do
 
 @public_surveys = Survey.where("open = 'true'")
@@ -5,7 +9,7 @@ get '/' do
   if logged_in?
     @user = User.find(session[:user_id])
     @surveys = @user.surveys
-    erb :profile
+    erb :index
   else
     erb :index
   end
@@ -21,6 +25,11 @@ end
 get '/users/:id' do #
 	@user = User.find(params[:id])
 	@surveys = @user.surveys
+  # @survey_id_ary = []
+  # @surveys.each do |x|
+  #   @survey_id_ary << x.id
+  # end
+  # @survey_id_ary
   erb :profile
 end
 
