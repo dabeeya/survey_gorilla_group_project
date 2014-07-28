@@ -87,12 +87,6 @@ post 'surveys/:id/maker' do
   end
 end
 
-
-
-
-
-
-
 patch '/surveys/:id/edit' do
 end
 
