@@ -13,7 +13,7 @@
 	</thead>
 		<% @questions.each do |question| %>
 	<tr id="row">
-		<td><div class="q_button edit">&#8594;</div></td>
+		<td><div class="q_button edit" data-question="<%= question.id %>">&#8594;</div></td>
 		<td class="question_style"><%= question.style %></td>
 		<td id="question_context"><%= question.context %></td>
 		<td><div class="q_button delete">&#8592;</div></td>
@@ -21,7 +21,11 @@
 	</tr>
 	<% end %>
 </table>
-
+<br>
+<br>
+<form class="hidden" id="q_edit" method="post">
+	<p><input type="submit"></p>
+</form>
 <br><br><br><br>
 
 <center>
