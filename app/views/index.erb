@@ -43,4 +43,19 @@
     <div class="submit"><input type="submit" value="submit"></div>
   </form>
 
+<br><br>
+
+<h3>Recent Public Surveys</h3>
+<% counter = 0 %>
+<% @public_surveys.reverse_each do |i| %>
+<% counter += 1 %>
+<br><br><a href="surveys/<%=i.id%>"><%=i.title%>
+<% break if counter > 15 %>
+<% end %>
+
+
+
+
+
+
 </div>
