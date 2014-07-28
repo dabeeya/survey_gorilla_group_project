@@ -27,6 +27,9 @@
 <center>
 <table width="450">
 <td><button id="survey_edit">Edit survey</button></td>
+<td><form action="/surveys/<%= @survey.id %>" method="post">
+	<div class="submit"><input type="submit" value="Delete survey"></div>
+</form></td>
 <td><form action="/surveys/<%= @survey.id %>" method="get">
 	<div class="submit"><input type="submit" value="Share survey"></div>
 </form></td>
