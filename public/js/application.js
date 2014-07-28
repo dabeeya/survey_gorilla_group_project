@@ -40,30 +40,33 @@ $(document).ready(function(){
 		$('#cool').paulund_modal_box();
 	});
 
-  $('#surveys').on('click', '.deleteSurvey', function(){
-    $(this).append('<br><br><div class="decision">Are you sure you want to delete this survey?<br><br> <button id="yes">Yes, please</button> <br><br> <button id="no">Absolutely not</button> </div>')
+  // $('#surveys').on('click', '.deleteSurvey', function(){
+  //   $(this).append('<br><br><div class="decision">Are you sure you want to delete this survey?<br><br> <button id="yes">Yes, please</button> <br><br> <button id="no">Absolutely not</button> </div>');
 
-    $('#yes').click(function(e){
-      e.preventDefault();
+  //   $('#no').click(function(){
+  //     $(this).parent().remove();
+  //   })
+  //   $('#yes').click(function(e){
+  //   e.preventDefault();
 
+  //   var oneSurveyId = $('span.hidden').text();
 
-      $(this).parent().remove();
-      $.ajax({
-        url: '/surveys/'+survey_id+'',
-        type: 'delete',
-        data: $(this).serialize
-      }).success(function(data) {
-        console.log(data)
-        $('#surveys').hide();
-        $('#surveys').show();
-      })
-    })
-    $('#no').click(function(){
-      console.log("works!")
-      $(this).parent().remove();
-    })
+  //   $(this).parent().remove();
+    
 
-   })
+  //   $.ajax({
+  //     url: '/surveys/'+oneSurveyId+'',
+  //     type: 'delete',
+  //     data: $(this).serialize
+  //   }).success(function(data) {
+  //     console.log(data)
+  //     $('#surveys').hide();
+  //     $('#surveys').show();
+  //   })
+  //  })
+  // })
+
+ 
 
   $('#question-options').hide();
   $('#radio-option').hide();
