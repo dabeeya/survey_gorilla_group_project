@@ -4,7 +4,7 @@ end
 
 get '/' do
 
-@public_surveys = Survey.where("open = 'true'")
+@public_surveys = Survey.where(open: true)
   
   if logged_in?
     @user = User.find(session[:user_id])

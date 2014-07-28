@@ -1,3 +1,8 @@
+<html>
+<head>
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+</head>
+
 <div class="container">
 	<%@responses.each do |question, info| %>
 		<p>Question: <%= @increment.next %></p>
@@ -10,6 +15,7 @@
 					<span> |<%= answer %>| </span>
 					<% end %>
 			<% else %>
+
 				<% info[:answers].each do |answer, times| %>
 				<p><%= answer %>: <%= times %></p>
 				<% end %>
@@ -18,3 +24,4 @@
 
 
 </div>
+</html>
