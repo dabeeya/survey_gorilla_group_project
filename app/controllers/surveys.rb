@@ -47,8 +47,9 @@ end
 
 post '/surveys/:id' do
   if logged_in?
+    user = User.find(session[:user_id])
     Survey.delete(params[:id])
-    redirect '/'
+    redirect "/users/#{user.id}"
   else
     redirect '/'
   end
