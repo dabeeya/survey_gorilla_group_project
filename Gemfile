@@ -20,11 +20,11 @@ gem 'shotgun'
 
 gem 'rspec'
 
-gem 'jquery-rails', '2.0.2'
-
 group :test do
   gem 'faker'
   # gem 'rspec'
 end
 
 gem 'bcrypt-ruby'
+
+gem 'json'

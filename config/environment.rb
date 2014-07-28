@@ -22,6 +22,7 @@ require 'erb'
 
 require 'bcrypt'
 
+require 'json'
 
 
 # Some helper constants for path-centric logic
