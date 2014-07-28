@@ -31,9 +31,9 @@ $(document).ready(function(){
     })
   }); 
 
-  $(".edit").post(function() {
+  // $(".edit").post(function() {
 
-  })
+  // })
 
 
 	$('#cool').click(function(){
