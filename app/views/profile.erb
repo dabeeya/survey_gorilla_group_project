@@ -4,7 +4,6 @@
 	<p>your surveys are listed below.  select to view survey, edit, and/or view results:</p>
 	<ul id = "surveys">
 	<% @surveys.each do |survey| %>
-	<span class="hidden"> <%= survey.id %></span>
 		<li><a href='/surveys/<%= survey.id %>/maker'><%= survey.title  %></a> <!-- <small><span class="deleteSurvey"> [Delete Survey]</span></small> --></li><br>
 
 		<% end %>
