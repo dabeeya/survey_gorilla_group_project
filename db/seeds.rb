@@ -1,11 +1,11 @@
-require 'faker'
+# require 'faker'
 
 anonymous = User.create(username: 'anon', email: 'anon@anon.com', password: 'anon')
 
 obama = User.create(username: 'daprez', email: 'obama@whitehouse.com', password: 'cake')
 obama.surveys << Survey.create(title: "Presidential Desserts", open: true)
 obama.surveys.first.questions << Question.create(context: "What would you like the official ice cream to be?", style: "radio")
-["chocolate", "vanilla", "blueberrys"].each do |flavor|
+["chocolate", "vanilla", "blueberry"].each do |flavor|
 	obama.surveys.first.questions.first.choices << Choice.create(input: flavor)
 end
 

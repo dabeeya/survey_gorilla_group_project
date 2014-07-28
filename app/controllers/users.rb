@@ -1,3 +1,7 @@
+after do
+  ActiveRecord::Base.connection.close
+end
+
 get '/' do
 
 @public_surveys = Survey.where("open = 'true'")

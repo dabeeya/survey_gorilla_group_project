@@ -10,6 +10,32 @@ $(document).ready(function(){
 			$(this).parent('td').parent('#row').html();
 		});
 	});
+
+  $(".edit").click(function() {
+    var question = $(this).data("question"); 
+    $.ajax({
+      url: "/question/"+question+"/edit", 
+      type: 'get', 
+      data: question.serialize
+    }).success(function(data){
+      data = JSON.parse(data)
+    $("#q_edit").append('<span>Question: </spand> <input data-id='+data["id"]+' type="text" value="'+data["context"]+'"/> <br/>')
+    
+    if (data["style"] == "radio") {
+    for (var i = 0; i < data["choices"].length; i++){
+      $("#q_edit").append('<span>Choice: </spand> <input type="text" value="'+data["choices"][i]+'"/> <br />')}
+    }
+     $("#q_edit").show()
+    }).fail(function(){
+      console.log("Doesn't Work!")
+    })
+  }); 
+
+  $(".edit").post(function() {
+
+  })
+
+
 	$('#cool').click(function(){
 		$('#cool').paulund_modal_box();
 	});
