@@ -5,7 +5,7 @@ get '/' do
   if logged_in?
     @user = User.find(session[:user_id])
     @surveys = @user.surveys
-    erb :profile
+    erb :index
   else
     erb :index
   end
