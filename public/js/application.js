@@ -38,9 +38,6 @@ $(document).ready(function(){
       $('#surveys').show();
     })
    })
-
-
-  
   })
 
  
